@@ -8,18 +8,95 @@
     
 <script type="text/javascript">
     
-    function displynum(z){
-        
-    calcform.txt1.value += z;
-        
+    function onfocusclear(object){
+        document.getElementById("vla").focused= false;
+         document.getElementById("vlb").focused= false;
+        object.focused =true;
     
-       calcform.txtA.value += z;
-        calcform.txtB.value +=z;
-        //console.log(z);
+    }
+    
+    function displynum(z){
+        if (document.getElementById("vla").focused){
+             calcform.txtA.value += z;
+        }
+        else{
+              calcform.txtB.value +=z;
+            
+        }
+        
     
 } 
     
+    function clearA(){
+        
+        document.getElementById("vla").value="";
+    }
+    function clearB(){
+        
+        document.getElementById("vlb").value="";
+    }
+   function clearAC(){
+    document.getElementById("ans").value="";
     
+     document.getElementById("signs").innerHTML="";
+    }
+  //checking the switch statement  
+    function operator(calculation){
+       var a = Number(document.getElementById("vla").value);
+        var b= Number(document.getElementById("vlb").value);
+        
+        switch(calculation){
+            case "+":{ symbol(calculation)
+                result= a+b;}
+                break;
+            case "-":{symbol(calculation)
+                result= a-b;}
+                break;
+            case "*":{symbol(calculation)
+                result= a*b;
+                break;}
+            case "/": {symbol(calculation)
+                result= a/b;}
+                break;
+            default:
+                document.calcform.ans.value= result;
+        }
+        function symbol(operatorsigns){
+            document.getElementById("signs").innerHTML= operatorsigns;
+        }
+        
+    }
+            
+    
+   /* function operator(calculation){
+       var a = Number(document.getElementById("vla").value);
+        var b= Number(document.getElementById("vlb").value);
+        
+        if(calculation=='+'){ symbol(calculation)
+        result= a+b;
+        }
+          else if (calculation== '-'){ symbol(calculation)
+              result = a-b;
+              
+          }   
+         else if (calculation== '*'){ symbol(calculation)
+              result = a*b;
+         }
+        else if (calculation== '/'){ symbol(calculation)
+              result = a/b;
+        }
+         
+        else{
+             document.calcform.ans.value= result;
+            
+        }
+        function symbol(operatorsigns){
+            document.getElementById("signs").innerHTML= operatorsigns;
+        }
+        
+        
+        
+    }*/
     
     </script>
 <form name= "calcform" align="center">
@@ -27,75 +104,81 @@
      
     
     
-      <table id="tb1" cellspacing="15px"  >  
+      <table id="tb1" cellspacing="10px"  >  
+         
+    <tr>
+    
+        <td><button type="button" name="btnA" value="" id="valuea">CA</button></td>
+        <td><button type="button" name="btnB" value="" id="valuea">sign</button></td>  
+        <td><button type="button" name="btnC" value="" id="valuea">CB</button></td>
+         <td><button type="button" name="btncap" id="resl">Result</button></td>
+          </tr>         
+               
           
-          <tr>
-           <td><button type="button" name="btnA" value="">valueA</button></td>
-                    
-               <td><button type="button" name="btnB" value="" > valueB</button></td>
-           
-                   <td><button type="button" name="btncap">Result</button></td></tr>         
-                
-          
-          <tr> 
-              <td><input type= "text" value="" name= "txtA" size="10px"  /></td>
+     <tr> 
+        
+          <td><input type= "text" value="" name= "txtA" size="8px" id="vla" onfocus="onfocusclear(this)" autofocus readonly /></td>
               
-              <td><input type= "text" value="" name= "txtB"  size="10px"/></td>
+      <td><p value="" name= "signs" size="10px" id="signs"  readonly ></p></td>
+         
+     <td><input type= "text" value="" name= "txtB"  size="8px" id= "vlb" onfocus="onfocusclear(this)"  readonly /></td>
               
-              <td><input type= "text" value="" name= "txt1" size="10px" /></td>
+                  
+     <td><input type= "text" value="" name= "txt1" size="8px" id="ans"  readonly /></td>
        
           </tr>
 
        <tr>
-           <td><button type="reset" name="btnA" value="A" >A</button></td>
+           <td><input type="button" name="btnA" value="A"  id="A" onclick="clearA()" ></td>
                     
-               <td><button type="reset" name="btnB" value="B">B</button></td>
+               <td><input type="button" name="btnB" value="B" id="B" onclick="clearB()"></td>
            
-                   <td><button type="reset" name="btncap">AC</button></td></tr>         
+                   <td><input type="reset" name="btncap" value="AC" id="AC" onclick="clearAC()" ></td></tr>         
                 
           <tr>
                     
-              <td><button type="button" name="btn9" value=9 onclick="displynum(btn9.value)">9</button></td>
+              <td><button type="button" name="btn9" value=9  id="9" onclick="displynum(btn9.value)">9</button></td>
                     
-                <td><button type="button" name="btn8" value="8" onclick="displynum(btn8.value)">8</button></td>
+                <td><button type="button" name="btn8" value="8" id="8"   onclick="displynum(btn8.value)">8</button></td>
                     
-                 <td><button type="button" name="btn7" value="7" onclick="displynum(btn7.value)">7</button></td>
+                 <td><button type="button" name="btn7" value="7" id="7" onclick="displynum(btn7.value)">7</button></td>
                     
-                   <td><button type="button" name="addbtn" value="+" onclick="displynum(addbtn.value)">+</button></td>
+              
+                   <td><button type="button" name="addbtn" value="+"  id="+" onclick= "operator(this.value)">+</button></td>
           </tr>
           
     
     <tr>
         
-        <td><button type="button" name="btn6" value="6" onclick="displynum(btn6.value)">6</button></td>
+        <td><button type="button" name="btn6" value="6" id="6"   onclick="displynum(btn6.value)">6 </button></td>
         
-           <td><button type="button" name="btn5" value="5" onclick="displynum(btn5.value)"> 5</button></td> 
+           <td><button type="button" name="btn5" value="5" id="5"   onclick="displynum(btn5.value)"> 5</button></td> 
         
-             <td> <button type="button" name="btn4" value="4" onclick="displynum(btn4.value)">4</button> </td>
+             <td> <button type="button" name="btn4" value="4" id="4" onclick="displynum(btn4.value)">4</button> </td>
         
-              <td><button  type="button" name="subtrctbtn" value="-" onclick="displynum(subtrctbtn.value)">-</button></td></tr>
+              <td><button  type="button" name="subtrctbtn" value="-" id="-" onclick="operator(this.value)">-</button></td></tr>
           
     <tr>
           
-         <td><button type="button" name="btn3" value="3" onclick="displynum(btn3.value)">3 </button> </td>  
+         <td><button type="button" name="btn3" value="3" id="3" onclick="displynum(btn3.value)">3 </button> </td>  
         
-           <td> <button type="button" name="btn2" value="2" onclick="displynum(btn2.value)">2</button> </td>  
+           <td> <button type="button" name="btn2" value="2" id="2" onclick="displynum(btn2.value)">2</button> </td>  
         
              <td> <button type="button" name="btn1" value="1" onclick="displynum(btn1.value)">1</button> </td>
         
-               <td><button type="button" name="multbtn" value="*" onclick="displynum(multbtn.value)">*</button></td>
+               <td><button type="button" name="multbtn" value="*" id="mult" onclick="operator(this.value)">*</button></td>
         
     </tr>
           
     <tr>
         
-        <td><button type="button" name="btn0" value="0" onclick="displynum(btn0.value)">0</button></td>
+        <td><button type="button" name="btn0" value="0" id="0"  onclick="displynum(btn0.value)">0</button></td>
         
-            <td><button type="button" name="dotbtn" value="." onclick="displynum(btn.value)">.</button></td>
+            <td><button type="button" name="dotbtn" value="." id="dot" onclick="displynum(btn.value)">.</button></td>
         
-              <td><button  type="button" name="evalbtn" value="==" onclick="txt1.value=eval(txt1.value)">=</button></td>
+              <td><button  type="button" name="evalbtn" value="=" onclick="operator(this.value)">=</button></td>
         
-               <td><button type="button" name="dividebtn" value="/" onclick="displynum(dividebtn.value)"> ÷</button></td>
+               <td><button type="button" name="dividebtn" value="/" onclick="operator(this.value)"> ÷</button></td>
         
            </tr>
           
