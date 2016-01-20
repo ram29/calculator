@@ -1,0 +1,106 @@
+<!Doctype html>
+<html>
+<head>
+      <link rel="stylesheet" href="calculator.css">
+    <h1>Calculator</h1>
+    </head>
+<body>
+    
+<script type="text/javascript">
+    
+    function displynum(z){
+        
+    calcform.txt1.value += z;
+        
+    
+       calcform.txtA.value += z;
+        calcform.txtB.value +=z;
+        //console.log(z);
+    
+} 
+    
+    
+    
+    </script>
+<form name= "calcform" align="center">
+    
+     
+    
+    
+      <table id="tb1" cellspacing="15px"  >  
+          
+          <tr>
+           <td><button type="button" name="btnA" value="">valueA</button></td>
+                    
+               <td><button type="button" name="btnB" value="" > valueB</button></td>
+           
+                   <td><button type="button" name="btncap">Result</button></td></tr>         
+                
+          
+          <tr> 
+              <td><input type= "text" value="" name= "txtA" size="10px"  /></td>
+              
+              <td><input type= "text" value="" name= "txtB"  size="10px"/></td>
+              
+              <td><input type= "text" value="" name= "txt1" size="10px" /></td>
+       
+          </tr>
+
+       <tr>
+           <td><button type="reset" name="btnA" value="A" >A</button></td>
+                    
+               <td><button type="reset" name="btnB" value="B">B</button></td>
+           
+                   <td><button type="reset" name="btncap">AC</button></td></tr>         
+                
+          <tr>
+                    
+              <td><button type="button" name="btn9" value=9 onclick="displynum(btn9.value)">9</button></td>
+                    
+                <td><button type="button" name="btn8" value="8" onclick="displynum(btn8.value)">8</button></td>
+                    
+                 <td><button type="button" name="btn7" value="7" onclick="displynum(btn7.value)">7</button></td>
+                    
+                   <td><button type="button" name="addbtn" value="+" onclick="displynum(addbtn.value)">+</button></td>
+          </tr>
+          
+    
+    <tr>
+        
+        <td><button type="button" name="btn6" value="6" onclick="displynum(btn6.value)">6</button></td>
+        
+           <td><button type="button" name="btn5" value="5" onclick="displynum(btn5.value)"> 5</button></td> 
+        
+             <td> <button type="button" name="btn4" value="4" onclick="displynum(btn4.value)">4</button> </td>
+        
+              <td><button  type="button" name="subtrctbtn" value="-" onclick="displynum(subtrctbtn.value)">-</button></td></tr>
+          
+    <tr>
+          
+         <td><button type="button" name="btn3" value="3" onclick="displynum(btn3.value)">3 </button> </td>  
+        
+           <td> <button type="button" name="btn2" value="2" onclick="displynum(btn2.value)">2</button> </td>  
+        
+             <td> <button type="button" name="btn1" value="1" onclick="displynum(btn1.value)">1</button> </td>
+        
+               <td><button type="button" name="multbtn" value="*" onclick="displynum(multbtn.value)">*</button></td>
+        
+    </tr>
+          
+    <tr>
+        
+        <td><button type="button" name="btn0" value="0" onclick="displynum(btn0.value)">0</button></td>
+        
+            <td><button type="button" name="dotbtn" value="." onclick="displynum(btn.value)">.</button></td>
+        
+              <td><button  type="button" name="evalbtn" value="==" onclick="txt1.value=eval(txt1.value)">=</button></td>
+        
+               <td><button type="button" name="dividebtn" value="/" onclick="displynum(dividebtn.value)"> ÷</button></td>
+        
+           </tr>
+          
+       </table> 
+    
+    </body>
+    
+</html>
