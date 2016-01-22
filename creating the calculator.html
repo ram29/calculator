@@ -38,32 +38,47 @@
    function clearAC(){
     document.getElementById("ans").value="";
     
-     document.getElementById("signs").innerHTML="";
-    }
-  //checking the switch statement  
-    function operator(calculation){
-       var a = Number(document.getElementById("vla").value);
-        var b= Number(document.getElementById("vlb").value);
-        
-        switch(calculation){
-            case "+":{ symbol(calculation)
-                result= a+b;}
-                break;
-            case "-":{symbol(calculation)
-                result= a-b;}
-                break;
-            case "*":{symbol(calculation)
-                result= a*b;
-                break;}
-            case "/": {symbol(calculation)
-                result= a/b;}
-                break;
-            default:
-                document.calcform.ans.value= result;
         }
-        function symbol(operatorsigns){
+  //checking the switch statement 
+   
+        
+            
+     function symbol(operatorsigns){
             document.getElementById("signs").innerHTML= operatorsigns;
         }
+    
+    var operand;
+    
+    function operator(calculation){
+         operand = calculation;
+        document.getElementById("signs").innerHTML= calculation;
+        
+        
+    }
+    
+    function equal(){
+        operand = document.getElementById("signs").innerHTML;
+        
+       var a = Number(document.getElementById("vla").value);
+        var b= Number(document.getElementById("vlb").value);
+                
+        switch(operand){
+            case "+": 
+                result= a+b;
+                break;
+            case "-":
+                result= a-b;
+                break;
+            case "*":
+                result= a*b;
+                break;
+            case "/": 
+                result= a/b;
+                break;
+                
+        }
+      
+        document.getElementById("ans").value = result;
         
     }
             
@@ -136,7 +151,7 @@
                    <td><input type="reset" name="btncap" value="AC" id="AC" onclick="clearAC()" ></td></tr>         
                 
           <tr>
-                    
+                  
               <td><button type="button" name="btn9" value=9  id="9" onclick="displynum(btn9.value)">9</button></td>
                     
                 <td><button type="button" name="btn8" value="8" id="8"   onclick="displynum(btn8.value)">8</button></td>
@@ -144,10 +159,8 @@
                  <td><button type="button" name="btn7" value="7" id="7" onclick="displynum(btn7.value)">7</button></td>
                     
               
-                   <td><button type="button" name="addbtn" value="+"  id="+" onclick= "operator(this.value)">+</button></td>
+                   <td><button type="button" name="addbtn" value="+"  id="+" onclick= "operator(this.value)">+</button>                  </td>
           </tr>
-          
-    
     <tr>
         
         <td><button type="button" name="btn6" value="6" id="6"   onclick="displynum(btn6.value)">6 </button></td>
@@ -156,7 +169,7 @@
         
              <td> <button type="button" name="btn4" value="4" id="4" onclick="displynum(btn4.value)">4</button> </td>
         
-              <td><button  type="button" name="subtrctbtn" value="-" id="-" onclick="operator(this.value)">-</button></td></tr>
+              <td><button  type="button" name="subtrctbtn" value="-" id="-" onclick="operator(this.value)">-</button></td>          </tr>
           
     <tr>
           
@@ -170,15 +183,15 @@
         
     </tr>
           
-    <tr>
+         <tr>
         
         <td><button type="button" name="btn0" value="0" id="0"  onclick="displynum(btn0.value)">0</button></td>
         
-            <td><button type="button" name="dotbtn" value="." id="dot" onclick="displynum(btn.value)">.</button></td>
+            <td><button type="button" name="dotbtn" value="." id="dot" onclick="displynum(dotbtn.value)">.</button></td>
         
-              <td><button  type="button" name="evalbtn" value="=" onclick="operator(this.value)">=</button></td>
+              <td><button  type="button" name="evalbtn" value="=" id="answer" onclick="equal()">=</button></td>
         
-               <td><button type="button" name="dividebtn" value="/" onclick="operator(this.value)"> ÷</button></td>
+               <td><button type="button" name="dividebtn" value="/" onclick="operator(this.value)">÷</button></td>
         
            </tr>
           
